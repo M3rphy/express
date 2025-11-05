@@ -28,34 +28,34 @@ klient(przeglądarka) > express server (__src/server.js__ __src/app.js__) > rout
 ### `src/routes/articles.js`
 - **Rola**: Definiuje endpointy HTTP związane z artykułami.
 - **funkcje**:
-  - `router.get('/', controllers.index);` → lista artykułów
-  - `router.get('/articles/new', controllers.newForm);` → formularz dodawania
-  - `router.post('/articles', controllers.create);` → tworzenie artykułu
-  - `router.get('/articles/:slug', controllers.show);` → podgląd artykułu
+  - `router.get('/', controllers.index);` -lista artykułów
+  - `router.get('/articles/new', controllers.newForm);` -formularz dodawania
+  - `router.post('/articles', controllers.create);` -tworzenie artykułu
+  - `router.get('/articles/:slug', controllers.show);` -podgląd artykułu
 - **eksportuje**: `module.exports = router;`
 
 ### `src/controllers/articlesController.js`
-- **Rola**: Logika obsługi żądań — pobiera dane ze `service`, renderuje widoki.
+- **Rola**: Logika obsługi żądań - pobiera dane ze `service`, renderuje widoki.
 - **Funkcje**:
-  - `index()` — lista artykułów.
-  - `show()` — podgląd pojedynczego artykułu.
-  - `newForm()` — formularz dodania.
-  - `create()` — walidacja + zapis nowego artykułu.
+  - `index()` - lista artykułów.
+  - `show()` - podgląd pojedynczego artykułu.
+  - `newForm()` - formularz dodania.
+  - `create()` - walidacja + zapis nowego artykułu.
 - **eksportuje**: `module.exports = { index, show, create, newForm };`
 
 ### `src/services/articleService.js`
-- **Rola**: Warstwa biznesowa — operacje wyższego poziomu na artykułach.
+- **Rola**: Warstwa biznesowa - operacje wyższego poziomu na artykułach.
 - **Funkcje**:
   - `getAllArticles()` - zwraca liste artykułów.
   - `getArticlesBySlug(slug)` - zwraca artykuł o danym slug.
-  - `createArticle(data)` — generuje id, slug, datę i zapisuje w JSON.
+  - `createArticle(data)` - generuje id, slug, datę i zapisuje w JSON.
 - **eksportuje**: `module.exports = {getAllArticles, getArticlesBySlug, createArticle };`
 
 ### `src/models/storage.js`
 - **Rola**: Abstrakcja nad plikiem `data/articles.json`.
 - **Funkcje**:
-  - `readArticles()` — odczyt JSON.
-  - `writeArticles()` — zapis JSON.
+  - `readArticles()` - odczyt JSON.
+  - `writeArticles()` - zapis JSON.
 - **eksportuje**: `module.exports = { readArticles, writeArticles };`
 
 # Opis widoków
